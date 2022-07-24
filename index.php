@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="assets/css/estilos.css">
     <title>Prueba JDM</title>
 </head>
-
+JuanDiego97
+juandiegosdvsf@gmail.com
 <body>
     <center>
         <h1 class="titulo">
@@ -51,12 +52,13 @@
                         <th>Fecha</th>
                     </thead>
                     <tbody id="tbody">
-                       
+
                     </tbody>
                 </table>
             </div>
         </h1>
     </center>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="assets/js/jQuery.js"></script>
     <script src="assets/js/main.js"></script>
 </body>

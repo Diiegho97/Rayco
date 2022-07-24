@@ -2,28 +2,26 @@
 
 class Operacion
 {
-    private $conexion;
+    private $conexin;
     private $query;
 
     function __construct()
     {
-        require dirname(__FILE__) . '/../config/conexionMysql.php';
-        $this->conexion = $con;
-        $this->conexion->query('set name "utf8"');
+        require dirname(__FILE__) . '/../conexion/conexionMysql.php';
+        $this->conexin = $con;
     }
 
     public function Aggregate($_m)
     {
-        $query = "insert into operacion values(0," . $_m['n1'] . "," . $_m['n2'] . "," . $_m['result'] . "," . $_m['date'] . ")";
-        var_dump($query);
-        $resultSet = $this->conexion->query($query);
-        return $resultSet;
+        /*$this->query = "insert into operacion (numero1,numero2,operacion,resultado,fecha) values(" . $_m['n1'] . "," . $_m['n2'] . "," . $_m['op'] . "," . $_m['result'] . "," . $_m['date'] . ")";
+        $resultSet = $this->conexin->query($this->query);
+        return $resultSet; */
     }
 
-    public function findAll()
+    public function findAll() 
     {
-        $query = "select numero1,numero2,resultado,fecha from operacion";
-        $resultSet = $this->conexion->query($query);
+        $this->query = "select numero1,numero2,operacion,resultado,fecha from operacion";
+        $resultSet = $this->conexin->query($this->query);
         return $resultSet;
     }
 }

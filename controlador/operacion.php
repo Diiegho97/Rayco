@@ -1,5 +1,6 @@
 <?php
-header('Access-Control-Allow-Origin: *');
+
+/*header('Access-Control-Allow-Origin: *');
 $http_origin = $_SERVER['HTTP_ORIGIN'];
 $allowed_domains = array(
     'http://localhost:80/',
@@ -9,7 +10,8 @@ $allowed_domains = array(
 if (in_array($http_origin, $allowed_domains)) {
     header("Access-Control-Allow-Origin: $http_origin");
 }
-require dirname(__FILE__) . '/../models/Operacion.php';
+*/
+require dirname(__FILE__) . '/../modelo/Operacion.php';
 header("Content-Type:application/json");
 
 $posts = array();
@@ -25,24 +27,19 @@ switch ($_SERVER['REQUEST_METHOD']) {
             }
             $posts  = array("status" => 1, "data" => $resultadoOperacion, "msg" => "Se agrego el registro");
         } else {
-            $posts = array("status" => 0, "msg" => "no ahy registro");
+            $posts = array("status" => 0, "msg" => "no hay registros");
         }
         break;
     case 'POST':
-
-        $jsonReqUrl = "php://input";
-        $reqjson = file_get_contents($jsonReqUrl);
-        $reqjsonDecode = json_decode($reqjson, true);
-
-        $num1 =  $reqjsonDecode['numero1'];
-        $num2 =  $reqjsonDecode['numero2'];
-        $operacion =  $reqjsonDecode['operacion'];
+        $num1 =  $_POST['numero1'];
+        $num2 =  $_POST['numero2'];
+        $operacion =  $_POST['operacion'];
         $resultadoOperacion = resultado($num1, $num2, $operacion);
         $data = array(
             'n1' => $num1,
             'n2' => $num2,
             'result' => $resultadoOperacion,
-            'operacion' => $operacion,
+            'op' => $operacion,
             'date' =>  date("Y-m-d H:i:s")
         );
         $operacionObj = new Operacion();

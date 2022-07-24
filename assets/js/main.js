@@ -1,14 +1,13 @@
 $(document).ready(function () {
     console.log(":v");
-
-
+ 
 
     let url = "http://localhost/prueba_diego/controlador/";
 
 
     $.ajax({
         type: "GET",
-        url: url + "operacion.php", 
+        url: url + "operacion.php",
         dataType: "json",
         success: function (result) {
             if (result.status === 1) {
@@ -23,10 +22,10 @@ $(document).ready(function () {
                 }
             }
         }, error: function (error) {
-            Swal.fire({
+            /*Swal.fire({
                 icon: 'error',
                 text: "Error de conexion"
-            });
+            });*/
             console.error("Error", error);
         }
     });
@@ -43,6 +42,9 @@ $(document).ready(function () {
         if (($("#numero2").val() == 0) && ($("#selectOperacion").val() == "dividir")) {
             alert("No divir por 0 ");
         } else {
+
+            console.log(url + "operacion.php");
+
             $.ajax({
                 type: "POST",
                 url: url + "operacion.php",
@@ -50,21 +52,12 @@ $(document).ready(function () {
                 dataType: "json",
                 success: function (result) {
                     if (result.status === 1) {
-                        Swal.fire({
-                            icon: 'success',
-                            text: result.msg
-                        });
+              
                     } else {
-                        Swal.fire({
-                            icon: 'error',
-                            text: result.msg
-                        });
+                
                     }
                 }, error: function (error) {
-                    Swal.fire({
-                        icon: 'error',
-                        text: "Error de conexion"
-                    });
+ 
                     console.error("Error", error);
                 }
             });
