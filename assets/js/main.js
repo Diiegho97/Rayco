@@ -1,12 +1,12 @@
 $(document).ready(function () {
-    let url = "http://localhost/prueba_diego/controlador/";
+    let url = "https://fierce-meadow-17309.herokuapp.com/controlador/";
  
     $.ajax({
         type: "GET",
         url: url + "operacion.php",
         dataType: "json",
         success: function (result) {
-            if (result.status === 1) {
+            if (result.status === 1) { 
                 let items = result.data;
                 for (let i = 0; i < items.length; i++) {
                     $("#tbody").append("<tr>" +
