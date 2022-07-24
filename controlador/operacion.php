@@ -1,16 +1,18 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 
-/*header('Access-Control-Allow-Origin: *');
 $http_origin = $_SERVER['HTTP_ORIGIN'];
 $allowed_domains = array(
     'http://localhost:80/',
-    'http://localhost'
+    'http://localhost',
+    'https://fierce-meadow-17309.herokuapp.com/'
 );
 
 if (in_array($http_origin, $allowed_domains)) {
     header("Access-Control-Allow-Origin: $http_origin");
 }
-*/
+
+
 require dirname(__FILE__) . '/../modelo/Operacion.php';
 header("Content-Type:application/json");
 
