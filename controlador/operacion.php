@@ -15,23 +15,25 @@ require dirname(__FILE__) . '/../modelo/Operacion.php';
 header("Content-Type:application/json");
 
 $posts = array();
+$json = array();
 
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
         $operacionObj = new Operacion();
         $resul = $operacionObj->findAll();
-        if (count($resul) > 0) {
-            $json = [];
-            for ($i = 0; $i < count($resul); $i++) {
-                array_push($json, $resul[$i]);
-            }
-            $posts  = array("status" => 1, "data" => $resultadoOperacion, "msg" => "Se agrego el registro");
+        while ($row = pg_fetch_row($resul)) {
+            array_push($json, $row);
+        }
+        if (count($json) > 0) {
+            $posts  = array("status" => 1, "data" => $json, "msg" => "encontro la informacion ");
         } else {
             $posts = array("status" => 0, "msg" => "no hay registros");
         }
         break;
     case 'POST':
-        $num1 =  $_POST['numero1'];
+        $date = new DateTime("now", new DateTimeZone('America/Bogota'));
+
+        $num1 =  $_POST['numero1']; 
         $num2 =  $_POST['numero2'];
         $operacion =  $_POST['operacion'];
         $resultadoOperacion = resultado($num1, $num2, $operacion);
@@ -40,7 +42,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
             'n2' => $num2,
             'result' => $resultadoOperacion,
             'op' => $operacion,
-            'date' =>  date("Y-m-d H:i:s")
+            'date' => $date->format('Y-m-d H:i:s')  
         );
         $operacionObj = new Operacion();
         $resul = $operacionObj->Aggregate($data);

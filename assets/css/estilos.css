@@ -1,4 +1,7 @@
-.titulo {
+* {
     font-family: 'Kanit', sans-serif;
-    margin-top:5%;
+    margin-top:2%;
+}
+.botones{
+    margin-top: 10%;
 }

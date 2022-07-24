@@ -12,52 +12,62 @@
     <link rel="stylesheet" href="assets/css/estilos.css">
     <title>Prueba JDM</title>
 </head>
-JuanDiego97
-juandiegosdvsf@gmail.com
-<body>
-    <center>
-        <h1 class="titulo">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Calculadora</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Prueba PHP</h6>
-                    <div class="col-auto">
-                        <label for="numero1" class="visually-hidden">Escriba numeros</label>
-                        <input type="number" class="form-control" id="numero1" min="0" placeholder="Numero 1">
-                        <label for="numero2" class="visually-hidden">Escriba numeros</label>
-                        <input type="number" class="form-control" id="numero2" min="0" placeholder="Numero 2">
-                        <br>
-                        <select class="form-select" id="selectOperacion" aria-label="Default select example">
-                            <option selected disabled>Seleccione el Operador</option>
-                            <option value="mas">Sumar</option>
-                            <option value="menos">Restar</option>
-                            <option value="por">Multiplicar</option>
-                            <option value="dividir">Dividir</option>
-                        </select>
-                        <label for="resultado" class="visually-hidden">Resultados</label><br>
-                        <input type="number" class="form-control" id="resultado" min="0" placeholder="Resultado">
-                    </div>
 
-                    <button type="button" id="enviar" class="btn btn-primary">Calcular</button>
+<body>
+    <section class="row">
+        <article class="container">
+            <center>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Calculadora</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Prueba PHP</h6>
+                        <div class="col-auto">
+                            <label for="numero1" class="visually-hidden">Escriba numeros</label>
+                            <input type="number" class="form-control" id="numero1" min="0" placeholder="Numero 1">
+                            <label for="numero2" class="visually-hidden">Escriba numeros</label>
+                            <input type="number" class="form-control" id="numero2" min="0" placeholder="Numero 2">
+                            <br>
+                            <select class="form-select" id="selectOperacion" aria-label="Default select example">
+                                <option value="0" selected disabled>Seleccione el Operador</option>
+                                <option value="mas">Sumar</option>
+                                <option value="menos">Restar</option>
+                                <option value="por">Multiplicar</option>
+                                <option value="dividir">Dividir</option>
+                            </select>
+                            <label for="resultado" class="visually-hidden">Resultados</label><br>
+                            <input type="text" disabled="disabled" name="resultado" class="form-control" id="resultado" min="0" placeholder="Resultado">
+                        </div>
+                        <div class="botones">
+                            <button type="button" id="enviar" class="btn btn-primary">Calcular</button>
+                            <button type="button" id="limpiar" class="btn btn-danger">Limpiar</button>
+                        </div>
+                    </div>
+                </div>
+            </center>
+
+
+            <div class="row">
+                <div class=" col-md-3 col-lg-3">
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <table id="table" class="table table-striped table">
+                        <thead>
+                            <th>Numero1</th>
+                            <th>Operacion</th>
+                            <th>Numero2</th>
+                            <th>Resultado</th>
+                            <th>Fecha</th>
+                        </thead>
+                        <tbody id="tbody">
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
+        </article>
 
-            <div>
-                <table id="table" class="table table-striped table">
-                    <thead>
-                        <th>Numero1</th>
-                        <th>Numero2</th>
-                        <th>Operacion</th>
-                        <th>Resultado</th>
-                        <th>Fecha</th>
-                    </thead>
-                    <tbody id="tbody">
 
-                    </tbody>
-                </table>
-            </div>
-        </h1>
-    </center>
+    </section>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="assets/js/jQuery.js"></script>
     <script src="assets/js/main.js"></script>
